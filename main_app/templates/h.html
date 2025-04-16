@@ -1,0 +1,390 @@
+import React from "react";
+
+const HomePage = () => {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-blue-600 text-white py-4 shadow-md">
+        <div className="container mx-auto flex justify-between items-center px-6">
+          <h1 className="text-2xl font-semibold">Interview Preparation</h1>
+          <nav>
+            <ul className="flex space-x-6">
+              <li><a href="#about" className="hover:underline">About</a></li>
+              <li><a href="#contact" className="hover:underline">Contact Us</a></li>
+              <li><a href="#summary" className="hover:underline">Summary</a></li>
+              <li><a href="#login" className="hover:underline">Login</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      
+      {/* Hero Section */}
+      <section className="bg-blue-500 text-white text-center py-20">
+        <h2 className="text-4xl font-bold">Welcome to Interview Preparation</h2>
+        <p className="text-lg mt-4">Get ready for your next big opportunity with our interactive practice tools.</p>
+      </section>
+      
+      {/* Job Field Selection */}
+      <div className="flex flex-col items-center py-16 px-6">
+        <div className="bg-white shadow-lg rounded-lg p-8 max-w-2xl w-full">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">Select Your Field</h2>
+          <form>
+            <div className="mb-4">
+              <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300">
+                <option>Select Your Job Field</option>
+                <option>Software Engineering</option>
+                <option>Data Science</option>
+                <option>Marketing</option>
+                <option>Finance</option>
+              </select>
+            </div>
+            <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">Generate Questions</button>
+          </form>
+        </div>
+      </div>
+
+      {/* Interview Practice Section */}
+      <div className="flex flex-col items-center py-16 px-6">
+        <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full text-center">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-6">Interview Practice</h2>
+          <p className="text-gray-600 mb-6">Type your answer to the question below and submit for AI feedback.</p>
+          <div className="mb-4">
+            <strong className="text-lg text-gray-800">What are your strengths and weaknesses?</strong>
+          </div>
+          <textarea className="w-full p-3 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300" rows="4" placeholder="Enter your answer"></textarea>
+          <div className="mt-6 flex justify-center space-x-4">
+            <button className="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600 transition">Submit for AI Feedback</button>
+            <button className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition">Next Question</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HomePage;
+
+
+
+{% load static %}
+<html>
+    <head>
+      
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <title>Interview preparation</title>
+        <link href="{% static 'css/home.css' %}" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+      <header>
+        <!--nav-->
+        <div class="navbr" style="padding-right:10%;">
+          <nav class="navbar navbar-expand-lg bg-body-tertiary w-100" style="margin: 0;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/LOGO (2).png' %}" style="height: 40px; width:40px;"><span style="color: blue;">Interview Preparation</span></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!--about,summery etc-->
+              <div class="collapse navbar-collapse bg-body-tertiary" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item" >
+                    <a class="nav-link" aria-current="page" href="#ABOUT" >About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#cont" >Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'summary' %}" id="summary">Summary</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'log_reg' %}" id="login">Login</a>
+                    <a class="nav-link" href="{% url 'logout_view' %}" style="display: none;" name="log_out" id="logout">Log out</a>
+                  </li>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="intro">
+          <div id="carouselExampleSlidesOnly" class="carousel slide w-100" data-bs-ride="carousel">
+            <div class="carousel-inner" >
+              <div class="carousel-item active">
+                <h2>WELCOME,LETS START PREPARING FOR INTERVIEW</h2>
+              </div>
+              <div class="carousel-item">
+                <h2>Step 1:Choose your job-feild/Upload Resume</h2>
+              </div>
+              <div class="carousel-item">
+                <h2>Step 2:Click Start</h2>
+              </div>
+              <div class="carousel-item">
+                <h2>Step 3:Type answere to questions and click Submit</h2>
+              </div>
+              <div class="carousel-item">
+                <h2>Step 4:Read Feedback and Suggested Answere and click next</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+        <div class="field" id="field">
+          <div class="field_heading">
+          <h4><strong>
+           <span style="color: red;">*</span>SELECT YOUR FIELD
+          </strong></h4>
+          </div>
+ <form action="{% url 'home' %}" method="POST" id="job_detail_form">
+            {% csrf_token %}
+            <div class="field_btn">
+              {{ Job_details.domain }}
+            </div>
+          </div>
+          <hr id="hr" style="justify-content: center;display:flex;align-items: center; margin-right: 200px;margin-left:200px;color:blue; border-width: 2px;box-shadow: 0px 10px 15px rgba(7, 1, 23, 0.5);">
+          <div class="discription" id="discription">
+            <div class="des">
+            <h5> job description :<br></h5>
+            <!-- <textarea class="job-description" placeholder="your job description" ></textarea> -->
+             {{ Job_details.description }}
+            </div>
+          </div>
+          <!-- <div class="resume_area" id="resume_area">
+            <div class="resume_heading">
+              <h5>Upload your resume</h5>
+            </div>
+          <div class="resume_file">
+            <div class="res">
+            <input type="file" class="resume" id="resume" >
+            <div class="res_sub" style="width: 100%; justify-content: flex-end; display: flex; flex-direction: column; ">
+              <button type="submit" class="btn-res-sub" id="btn-res-sub"  style="color:white;background-color: rgb(70, 70, 225);">UPLOAD</button>
+            </div>
+          </div>
+          </div>
+            </div> -->
+          <div class="start-btn">
+           <button type="submit" name="action" value="Generate_question" id="button" onclick="start()">Generate Question</button>
+          </div>
+      
+ </form> 
+      <!--area in which quesrion,feedback and sugested ans is shown this area appears only if btn-generate question is clicked-->
+     <section id="area"><!--section of area-->
+        <div class="main_area" id="main_area"style="display: flex;">
+          <div class="stop_btn" style="width: 900px;">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-bottom: 10px;margin-left: 700px;">
+            End practicing
+          </button>
+          </div>
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header" style="background-color: rgb(111, 111, 250);color: white;">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Summary</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <!--question-->
+                <strong id="q-1"></strong><br><br>
+                <!--heading:feedback-->
+                <strong id="f-1"></strong><br><br>
+                <!--text-feedback-->
+                <p id="t-1"></p><br><br>
+                <hr>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="end_practice" onclick="practice_done()" >Ok</button>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+          <div class="card" style="width: 70rem;border :2px solid green">
+            <strong class="card-header" style="background-color: rgba(67, 97, 219, 0.454);">Question</strong>
+            <div class="card-body">
+              <strong class="quesrion" id="">{{ question }}</strong>
+              <div class="card-body">
+              <!--
+                <div class="audioopt">
+                  <form actin="">
+                <input type="file" id="audio-upload" name="audio-upload" accept="audio/*" style=" display: none;">
+                </div>
+              -->
+              <div class="typeans">
+                 <!-- <textarea class="answeretypeopt" placeholder="Enter your Answere" id="textarea" ></textarea> -->{{ AnsForm.user_ans }}
+              </div>
+              <div class="ans">
+                <input type="hidden" name="practice_id" id="practice_id" value="{{ practice_id }}">
+              </div>
+              <!--ans input method choose-->
+              <div class="ans_method" style="display: flex; align-items: center; justify-content: center;"> 
+               <!-- <a href="javascript:void(0);" onclick="showAudio()" style="margin-right: 30px;">Audio answer</a>--><a href="javascript:void(0);" onclick="showTextarea()">Text answer</a>
+               </div>
+              </div>
+              <!--card footer btn-->
+              <div class="card-footer">
+                <button type="button" class="feedback" onclick="feedback()" >Feedback</button>
+                <button type="submit" class="suggrstedans" name="action" value="suggested_answer">Suggested Answere</button><!--onclick="answer()"-->
+              </div>
+            </div>
+          </div>
+           <!--feedback card-->
+          <div class="card" style="width: 70rem; display: flex; " id="feedback-card" >
+              <strong class="card-header" style=" background-color: rgba(97, 204, 240, 0.514);">Feedback</strong>
+              <div class="Feedback">
+              <div class="card-body">
+               <strong class="feedback" id="feedback">{{ feedback }}</strong>
+              </div>
+             </div>
+          </div>
+          <!--answere card-->
+          <div class="card" style="width: 70rem; display: flex;" id="answer-card">
+            <strong class="card-header" style=" background-color: rgba(97, 204, 240, 0.413);">Suggested Answere</strong>
+            <div class="card-body">
+              <p class="card-text"><strong>{{ Suggested_ans }}.</strong></p>
+            </div>
+          </div>
+          <!--ans submit button and next question button-->
+          <div class="ans_submit" style="margin-top:30px;margin-bottom: 30px;  ">
+            
+            <button type="submit" name="action" value="submit_for_AI" class="sub_btn_ans" id="sub" style="padding: 10px;color:white;background-color: rgba(69, 69, 238, 0.616); " >Submit for AI Feedback</button> <!---onclick="feedback_ans()"-->
+            <button type="submit" name="action" value="next_qn" class="sub_btn_ans" id="next" style="padding: 10px;color:white;background-color: rgba(69, 69, 238, 0.616); display: block;">Next Question</button><!---onclick="next_ans()"-->
+            
+          </div>
+          </form>
+          </div>
+     </section>
+      <script src="{% static 'js/home.js' %}"></script>
+   
+      <!-- </div>-->
+    
+    <div class="container" id="container">
+      <section id="ABOUT">
+      <div class="About" style="padding:100px">
+        <div style="text-align:center;">
+          <h2 style="text-decoration:underline; color:blue">ABOUT</h2>
+          <p>Are you preparing for a job interview and want to ensure you're fully ready? Our website offers an innovative AI-powered interview preparation platform. With our service, you can practice real interview questions tailored to your desired job role, receive instant feedback, and improve your interview skills.
+           <br>
+            Our AI interview coach simulates real interview scenarios, providing personalized questions based on your resume and job description. You'll get actionable feedback on your answers, helping you refine your responses and boost your confidence.
+            <br>
+            Whether you're a recent graduate or a seasoned professional, our platform is designed to help you excel in your interviews and land your dream job. Start practicing today and take the first step towards a successful career!</p>
+        </div>
+      </div>
+    </section>
+
+
+    {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Preparation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background: linear-gradient(to right, #007bff, #00c6ff);
+        }
+        .navbar-brand span {
+            color: white;
+        }
+        .navbar-nav .nav-link {
+            color: white;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa;
+        }
+        .card {
+            border-radius: 10px;
+        }
+        .btn-primary, .btn-success, .btn-secondary {
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+                    <img src="{% static 'img/LOGO (2).png' %}" alt="Logo" class="me-2" style="height: 40px; width:40px;">
+                    <span class="fw-bold">Interview Preparation</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#ABOUT">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#cont">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'summary' %}">Summary</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'log_reg' %}" id="login">Login</a>
+                            <a class="nav-link d-none" href="{% url 'logout_view' %}" id="logout">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container my-5 text-center">
+        <h2 class="text-primary fw-bold">Welcome! Let's Start Preparing for Your Interview</h2>
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active"><h3 class="fw-light">Step 1: Choose Your Job Field / Upload Resume</h3></div>
+                <div class="carousel-item"><h3 class="fw-light">Step 2: Click Start</h3></div>
+                <div class="carousel-item"><h3 class="fw-light">Step 3: Type Your Answer and Click Submit</h3></div>
+                <div class="carousel-item"><h3 class="fw-light">Step 4: Read Feedback and Suggested Answer, Then Click Next</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-4">
+        <div class="card shadow p-4">
+            <h4 class="text-danger">* Select Your Field</h4>
+            <form action="{% url 'home' %}" method="POST" id="job_detail_form">
+                {% csrf_token %}
+                <div class="mb-3">{{ Job_details.domain }}</div>
+                <hr>
+                <div class="mb-3"><strong>Job Description:</strong> {{ Job_details.description }}</div>
+                <button type="submit" name="action" value="Generate_question" class="btn btn-primary w-100">Generate Question</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="container my-5" id="area">
+        <div class="card shadow p-4">
+            <h4 class="text-primary">Interview Practice</h4>
+            <form action="{% url 'home' %}" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <strong>Question:</strong>
+                    <p class="fs-5 text-muted">{{ question }}</p>
+                </div>
+                <div class="mb-3">{{ AnsForm.user_ans }}</div>
+                <input type="hidden" name="practice_id" value="{{ practice_id }}">
+                <div class="d-flex gap-3">
+                    <button type="submit" name="action" value="submit_for_AI" class="btn btn-success flex-grow-1">Submit for AI Feedback</button>
+                    <button type="submit" name="action" value="next_qn" class="btn btn-secondary flex-grow-1">Next Question</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="container my-5" id="ABOUT">
+        <div class="card shadow p-4">
+            <h4 class="text-primary">About</h4>
+            <p>Are you preparing for a job interview? Our AI-powered platform helps you practice real interview questions, receive instant feedback, and refine your answers.</p>
+            <p>Whether you're a recent graduate or a seasoned professional, our system is designed to enhance your confidence and boost your interview performance.</p>
+        </div>
+    </section>
