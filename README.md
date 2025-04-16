@@ -5,3 +5,5 @@
 ![qn](https://github.com/user-attachments/assets/6863273c-e019-47ce-a7b3-015d06c173a5)
 ![summary](https://github.com/user-attachments/assets/ce27fba9-dc36-4ff8-b09b-8e802758e643)
 ![contact us](https://github.com/user-attachments/assets/250c591d-7ba7-43a3-a54d-3b203b11ee36)
+![personlity](https://github.com/user-attachments/assets/4f402c12-368c-4d2f-b9b6-58ebba843731)
+
